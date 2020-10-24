@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="buburnquest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/buburnquest_jar</output-path>
+    <root id="archive" name="buburnquest.jar">
+      <element id="module-output" name="buburnquest" />
+    </root>
+  </artifact>
+</component>
