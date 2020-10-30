@@ -27,11 +27,18 @@ public class Demon{
 		return this.force;
 	}
 
-	public int getPv(){
-		return this.pv;
+	public int getForceFighting(){
+		int forceCoup, diff;
+		if (this.getForce() == 8) {
+			diff = 4;
+		}else {
+			diff = 6;
+		}
+		forceCoup = ((int)(2 * diff * (float)Math.random() +1)) + this.force - diff;
+		return forceCoup;
 	}
 
-	public boolean getEtat(){
-		return this.etat;
+	public int getPv(){
+		return this.pv;
 	}
 }

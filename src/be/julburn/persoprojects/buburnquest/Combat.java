@@ -46,34 +46,38 @@ public class Combat {
     }
 
     public void attaqueDemon(Heros geralt, Demon eredin) throws IOException{
-
+        int total = eredin.getForceFighting();
         System.in.read();
         float proba = (float)Math.random();
         if (proba <0.2){
             System.out.println("Mais il ne te touche pas...");
         }
         else {
-            System.out.println("Il te blesse !");
-            geralt.pv = geralt.getPv() - eredin.getForce();
+            System.out.print("Il te blesse !");
+            geralt.pv = geralt.getPv() - total;
         }
+        System.in.read();
+        System.out.println("\t hit : " + total);
     }
 
     public void attaqueHeros(Heros geralt, Demon eredin) throws IOException{
-
+        int total = geralt.getForceFighting();
         System.in.read();
         float proba = (float)Math.random();
         if (proba < 0.2){
             System.out.println("mais tu ne le touches malheureuseument pas");
         }
         else {
-            System.out.println("Tu le blesses");
+            System.out.print("Tu le blesses");
             float cc = (float)Math.random();
             if (cc < 0.15 && geralt.getForce() == 30){
                 System.in.read();
                 System.out.println("Coup Critique !");
-                eredin.pv = eredin.getPv() - 6;
+                total = total + 6;
             }
-            eredin.pv = eredin.getPv() - geralt.getForce();
+            eredin.pv = eredin.getPv() - total;
+            System.in.read();
+            System.out.println("\thit : " + total);
         }
 
     }

@@ -17,16 +17,18 @@ public class Main {
         for (int cpt = 0; cpt < 5; cpt++)
             System.out.println("\n");
         for(int cpt = 0; cpt < 7; cpt++) {             // Début des tours
-            julburn.avancement(cpt);
-            System.out.println("Après quelques dizaines de mètres, tu arrives à un carrefour.");
-            System.in.read();
-            julburn.setDirection();
-            combat = julburn.getCombat();
-            if (combat) {
-                julburn.fighting(julburn);
-            }
-            if (julburn.getEtat()) {
-                julburn.setCoffre(julburn);
+            if (julburn.etat) {
+                julburn.avancement(cpt);
+                System.out.println("Après quelques dizaines de mètres, tu arrives à un carrefour.");
+                System.in.read();
+                julburn.setDirection();
+                combat = julburn.getCombat();
+                if (combat) {
+                    julburn.fighting(julburn);
+                }
+                if (julburn.getEtat()) {
+                    julburn.setCoffre(julburn);
+                }
             }
         }
         if (julburn.getEtat()) {

@@ -4,19 +4,24 @@ import java.io.IOException;
 
 public class Heros {
 		public int pv, force;
-		public String nom;
+		public String nom, position;
 		public Boolean etat, hCombat = false;
 
 	public void intro() throws IOException {
 		System.out.println("Tu entres dans un donjon habité par des démons\n\ntu vas devoir arriver jusqu'au bout vivant ! ");
 		System.in.read();
+		System.out.println("\nBonne chance " + this.getNom() + " !");
+		System.in.read();
 	}
 
-	public void setNom(){
+	public void setNom() throws IOException{
 		Scanner sc = new Scanner(System.in);
 		for(int cpt = 0; cpt < 5; cpt++)
 			System.out.println("\n");
-		System.out.println("Quel nom veux-tu donner à ton Héros ?");
+		System.out.println("               ___________");
+		System.out.println("Bienvenue sur |BUBURNQUEST|\n               -----------");
+		System.in.read();
+		System.out.println("\nQuel nom veux-tu donner à ton Héros ?");
 		this.nom = sc.nextLine();
 	}
 
@@ -43,7 +48,7 @@ public class Heros {
 	public void afficheHeros() throws IOException {
 		System.out.println("\n\n\n\n\n\nVoici ton Héros");
 		System.in.read();
-		System.out.println("\n" + this.getNom() + "\nPV : " + this.getPv() + "\nForce : " + this.getForce());
+		System.out.println("\n" + this.getNom() + "\nPV : " + this.getPv() + "\nForce moyenne : " + this.getForce());
 		if (this.force == 30){
 			System.out.println("Chances de Coup Critique : 15%");
 		}
@@ -60,7 +65,7 @@ public class Heros {
 			System.in.read();
 		}
 		if (cpt == 3){
-			System.out.println("Tu pense avoir trouvé une piste qui te mènerait à la sortie");
+			System.out.println("Tu penses avoir trouvé une piste qui te mènerait à la sortie");
 			System.in.read();
 		}
 		if (cpt == 1){
@@ -77,8 +82,19 @@ public class Heros {
 	    return this.pv;
 	}
 
-	public int getForce(){
-	    return this.force;
+	public int getForce() {
+		return this.force;
+	}
+
+	public int getForceFighting(){
+	    int forceCoup, diff;
+	    if (this.force == 30) {
+	    	diff = 4;
+		}else {
+	    	diff = 3;
+		}
+	    forceCoup = ((int)(2 * diff * (float)Math.random() +1)) + this.force - diff;
+		return forceCoup;
 	}
 
 	public boolean getEtat(){
