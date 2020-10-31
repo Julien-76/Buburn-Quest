@@ -1,4 +1,6 @@
 package be.julburn.persoprojects.buburnquest;
+
+import java.io.*;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -10,6 +12,12 @@ public class Heros {
 	public void intro() throws IOException {
 		System.out.println("Tu entres dans un donjon habité par des démons\n\ntu vas devoir arriver jusqu'au bout vivant ! ");
 		System.in.read();
+		System.out.println("Voici la carte du donjon :");
+		File file = new File("carteVierge.txt");
+		Scanner sc = new Scanner(file);
+		while (sc.hasNextLine()){
+			System.out.println(sc.nextLine());
+		}
 		System.out.println("\nBonne chance " + this.getNom() + " !");
 		System.in.read();
 	}
@@ -72,6 +80,8 @@ public class Heros {
 			System.out.println("Toujours aucune trace de la sortie, tu avances aveuglement...");
 			System.in.read();
 		}
+        System.out.println("Après quelques dizaines de mètres, tu arrives à un carrefour.");
+        System.in.read();
 	}
 
 	public String getNom(){

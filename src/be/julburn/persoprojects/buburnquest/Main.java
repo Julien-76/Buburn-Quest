@@ -19,8 +19,6 @@ public class Main {
         for(int cpt = 0; cpt < 7; cpt++) {             // Début des tours
             if (julburn.etat) {
                 julburn.avancement(cpt);
-                System.out.println("Après quelques dizaines de mètres, tu arrives à un carrefour.");
-                System.in.read();
                 julburn.setDirection();
                 combat = julburn.getCombat();
                 if (combat) {
